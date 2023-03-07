@@ -36,7 +36,6 @@ func (p *Provider) Get(ctx context.Context, url string) (_ io.ReadCloser, err er
 	}
 
 	go func() {
-
 		downloader := manager.NewDownloader(p.client)
 		_, err = downloader.Download(ctx, &sourceClipWriteAt{pipeW}, &s3.GetObjectInput{
 			Bucket: aws.String(bucket),

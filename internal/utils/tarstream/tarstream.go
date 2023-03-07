@@ -11,13 +11,13 @@ import (
 	"github.com/rs/zerolog"
 )
 
-type TarStreamUnpacker struct {
+type Unpacker struct {
 	logger *zerolog.Logger
 	reader *tar.Reader
 }
 
-func New(tarStream io.Reader, logger *zerolog.Logger) *TarStreamUnpacker {
-	return &TarStreamUnpacker{
+func New(tarStream io.Reader, logger *zerolog.Logger) *Unpacker {
+	return &Unpacker{
 		reader: tar.NewReader(tarStream),
 		logger: logger,
 	}
@@ -29,7 +29,7 @@ type UnpackerOut struct {
 	Reader io.Reader
 }
 
-func (t *TarStreamUnpacker) Next() (UnpackerOut, error) {
+func (t *Unpacker) Next() (UnpackerOut, error) {
 	header, err := t.reader.Next()
 	if err != nil {
 		return UnpackerOut{}, err

@@ -109,7 +109,7 @@ func (s *Service) RunTask(ctx context.Context, sourceURL string, targetBucket st
 			}
 
 			egLogger.Trace().Msg("uploading file with buffer")
-			err := s.uploadFile(gCtx, targetBucket, targetDirectory, out.Name, out.Size, out.Reader)
+			err := s.uploadFile(gCtx, targetBucket, targetDirectory, out.Name, out.Reader)
 			return errors.Wrap(err, "failed to upload file")
 		})
 	}
@@ -133,7 +133,6 @@ func (s *Service) uploadFile(
 	targetBucket string,
 	targetDirectory string,
 	name string,
-	size int64,
 	reader io.Reader,
 ) error {
 	content, err := io.ReadAll(reader)

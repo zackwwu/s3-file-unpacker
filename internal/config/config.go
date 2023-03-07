@@ -11,8 +11,6 @@ import (
 	"github.com/zackwwu/file-unpack-worker/internal/utils"
 )
 
-const ()
-
 // TODO: use https://github.com/spf13/cobra to work with env vars, command arguments and flags
 type envConfig struct {
 	AWSClientTimeoutSec int `env:"AWS_CLIENT_TIMEOUT_SEC,default=30"`

@@ -11,10 +11,6 @@ import (
 	"github.com/zackwwu/file-unpack-worker/internal/config"
 )
 
-var (
-	commitHash string
-)
-
 func main() {
 	flag.Usage = func() {
 		fmt.Fprintf(flag.CommandLine.Output(), "Usage: %s [FLAGS] [--source SOURCE_CLIP_URL | --bucket TARGET_BUCKET | --dir TARGET_DIRECTORY]\n", os.Args[0])

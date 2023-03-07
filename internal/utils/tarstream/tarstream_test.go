@@ -37,7 +37,6 @@ func TestTarStream(t *testing.T) {
 			bytes, err := io.ReadAll(out.Reader)
 			require.NoError(t, err)
 			fmt.Printf("content: %s\n", string(bytes))
-
 		}
 
 		assert.Equal(t, 1, 2)
